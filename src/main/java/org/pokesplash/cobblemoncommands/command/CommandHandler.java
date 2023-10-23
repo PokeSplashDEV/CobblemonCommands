@@ -9,6 +9,7 @@ public abstract class CommandHandler {
 	public static final String basePermission = "cobblemoncommands";
 	public static void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher) {
 		new BaseCommand().register(dispatcher);
+		new PrestigeCommand().register(dispatcher);
 	}
 
 	public static void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher,
