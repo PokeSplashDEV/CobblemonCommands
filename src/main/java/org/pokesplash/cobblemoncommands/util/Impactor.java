@@ -8,6 +8,7 @@ import net.impactdev.impactor.api.economy.transactions.EconomyTransferTransactio
 
 import java.math.BigDecimal;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * Class to interact with the Impactor API
@@ -28,7 +29,8 @@ public abstract class Impactor {
 
 	public static Account getAccount(UUID uuid) {
 		if (!service.hasAccount(uuid).join()) {
-			return null;
+			CompletableFuture<Account> future = service.account(uuid);
+			return future.join();
 		}
 		return service.account(currency, uuid).join();
 	}

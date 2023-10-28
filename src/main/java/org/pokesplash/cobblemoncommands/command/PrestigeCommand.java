@@ -9,10 +9,8 @@ import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
-import org.pokesplash.cobblemoncommands.CobblemonCommands;
 import org.pokesplash.cobblemoncommands.ui.PrestigeMenu;
 import org.pokesplash.cobblemoncommands.util.LuckPermsUtils;
-import org.pokesplash.cobblemoncommands.util.Utils;
 
 public class PrestigeCommand {
 	public void register(CommandDispatcher<ServerCommandSource> dispatcher) {
