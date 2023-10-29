@@ -12,6 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class PokemonSpawnEvent {
 	public void registerEvent() {
+		// Creates hidden abilities.
 		CobblemonEvents.POKEMON_ENTITY_SPAWN.subscribe(Priority.NORMAL, e -> {
 
 			if (CobblemonCommands.config.getHiddenAbility().isEnableSpawning()) {

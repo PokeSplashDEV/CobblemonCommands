@@ -13,6 +13,7 @@ public class Config {
 
 	private PrestigeConfig prestige;
 	private HaConfig hiddenAbility;
+	private SyncConfig synchronize;
 
 	/**
 	 * Constructor to create a default config file.
@@ -20,6 +21,7 @@ public class Config {
 	public Config() {
 		prestige = new PrestigeConfig();
 		hiddenAbility = new HaConfig();
+		synchronize = new SyncConfig();
 	}
 
 	/**
@@ -32,6 +34,7 @@ public class Config {
 					Config cfg = gson.fromJson(el, Config.class);
 					prestige = cfg.getPrestige();
 					hiddenAbility = cfg.getHiddenAbility();
+					synchronize = cfg.getSynchronize();
 				});
 
 		if (!futureRead.join()) {
@@ -53,5 +56,8 @@ public class Config {
 	}
 	public HaConfig getHiddenAbility() {
 		return hiddenAbility;
+	}
+	public SyncConfig getSynchronize() {
+		return synchronize;
 	}
 }
