@@ -11,6 +11,7 @@ public abstract class CommandHandler {
 		new BaseCommand().register(dispatcher);
 		new PrestigeCommand().register(dispatcher);
 		new DeleteMoveCommand().register(dispatcher);
+		new EndBattleCommand().register(dispatcher);
 	}
 
 	public static void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher,
