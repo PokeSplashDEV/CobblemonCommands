@@ -12,12 +12,14 @@ import java.util.concurrent.CompletableFuture;
 public class Config {
 
 	private PrestigeConfig prestige;
+	private HaConfig hiddenAbility;
 
 	/**
 	 * Constructor to create a default config file.
 	 */
 	public Config() {
 		prestige = new PrestigeConfig();
+		hiddenAbility = new HaConfig();
 	}
 
 	/**
@@ -29,6 +31,7 @@ public class Config {
 					Gson gson = Utils.newGson();
 					Config cfg = gson.fromJson(el, Config.class);
 					prestige = cfg.getPrestige();
+					hiddenAbility = cfg.getHiddenAbility();
 				});
 
 		if (!futureRead.join()) {
@@ -47,5 +50,8 @@ public class Config {
 
 	public PrestigeConfig getPrestige() {
 		return prestige;
+	}
+	public HaConfig getHiddenAbility() {
+		return hiddenAbility;
 	}
 }
