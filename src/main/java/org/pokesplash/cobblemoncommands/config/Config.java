@@ -14,6 +14,7 @@ public class Config {
 	private PrestigeConfig prestige;
 	private HaConfig hiddenAbility;
 	private SyncConfig synchronize;
+	private NodeConfig firstJoin;
 
 	/**
 	 * Constructor to create a default config file.
@@ -22,6 +23,7 @@ public class Config {
 		prestige = new PrestigeConfig();
 		hiddenAbility = new HaConfig();
 		synchronize = new SyncConfig();
+		firstJoin = new NodeConfig();
 	}
 
 	/**
@@ -35,6 +37,7 @@ public class Config {
 					prestige = cfg.getPrestige();
 					hiddenAbility = cfg.getHiddenAbility();
 					synchronize = cfg.getSynchronize();
+					firstJoin = cfg.getFirstJoin();
 				});
 
 		if (!futureRead.join()) {
@@ -59,5 +62,8 @@ public class Config {
 	}
 	public SyncConfig getSynchronize() {
 		return synchronize;
+	}
+	public NodeConfig getFirstJoin() {
+		return firstJoin;
 	}
 }
