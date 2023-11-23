@@ -11,6 +11,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import org.pokesplash.cobblemoncommands.CobblemonCommands;
 import org.pokesplash.cobblemoncommands.config.SingleNodeConfig;
+import org.pokesplash.cobblemoncommands.util.Impactor;
 
 import java.util.Collection;
 import java.util.List;
@@ -19,6 +20,9 @@ public class PlayerJoinEvent implements ServerPlayConnectionEvents.Join {
 
 	@Override
 	public void onPlayReady(ServerPlayNetworkHandler handler, PacketSender sender, MinecraftServer server) {
+
+		Impactor.getAccount(handler.getPlayer().getUuid());
+
 		User player = LuckPermsProvider.get().getUserManager().getUser(handler.getPlayer().getUuid());
 		Collection<Group> groups = player.getInheritedGroups(QueryOptions.nonContextual());
 

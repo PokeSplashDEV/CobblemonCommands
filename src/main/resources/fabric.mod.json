@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "fabrictemplate",
+  "id": "cobblemoncommands",
   "version": "${version}",
-  "name": "FabricTemplate",
+  "name": "CobblemonCommands",
   "description": "",
   "authors": [],
   "contact": {

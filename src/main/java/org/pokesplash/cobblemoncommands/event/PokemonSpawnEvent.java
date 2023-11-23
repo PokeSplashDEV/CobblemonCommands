@@ -5,6 +5,7 @@ import com.cobblemon.mod.common.api.abilities.AbilityTemplate;
 import com.cobblemon.mod.common.api.events.CobblemonEvents;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import kotlin.Unit;
+import net.minecraft.client.particle.Particle;
 import org.pokesplash.cobblemoncommands.CobblemonCommands;
 import org.pokesplash.cobblemoncommands.util.CobblemonUtils;
 

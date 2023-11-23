@@ -14,6 +14,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class PokemonCaptureEvent {
 	public void registerEvent() {
 		CobblemonEvents.POKEMON_CAPTURED.subscribe(Priority.NORMAL, e -> {
+
 			PlayerPartyStore party = Cobblemon.INSTANCE.getStorage().getParty(e.getPlayer());
 
 			for (int x=0; x<6; x++) {
