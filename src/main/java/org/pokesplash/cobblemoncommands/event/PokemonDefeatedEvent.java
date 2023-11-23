@@ -5,6 +5,7 @@ import com.cobblemon.mod.common.api.battles.model.actor.BattleActor;
 import com.cobblemon.mod.common.api.events.CobblemonEvents;
 import com.cobblemon.mod.common.battles.pokemon.BattlePokemon;
 import kotlin.Unit;
+import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.pokesplash.cobblemoncommands.CobblemonCommands;
 
@@ -27,7 +28,16 @@ public class PokemonDefeatedEvent {
 					ServerPlayerEntity player = CobblemonCommands.server.getPlayerManager().getPlayer(uuid);
 
 					if (player != null) {
-						player.addExperience(totalLevels / 2);
+//						player.addExperience(totalLevels / 2);
+
+						CobblemonCommands.server.getWorld(player.getWorld().getRegistryKey())
+								.spawnEntity(new ExperienceOrbEntity(
+										player.getWorld(),
+										player.getX(),
+										player.getY(),
+										player.getZ(),
+										totalLevels
+								));
 					}
 				}
 			}
