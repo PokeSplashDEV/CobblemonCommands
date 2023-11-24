@@ -4,6 +4,8 @@ import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
+import org.pokesplash.cobblemoncommands.CobblemonCommands;
+import org.pokesplash.cobblemoncommands.config.CommandConfig;
 
 public abstract class CommandHandler {
 	public static final String basePermission = "cobblemoncommands";
@@ -12,6 +14,10 @@ public abstract class CommandHandler {
 		new PrestigeCommand().register(dispatcher);
 		new DeleteMoveCommand().register(dispatcher);
 		new EndBattleCommand().register(dispatcher);
+
+		for (CommandConfig config : CobblemonCommands.config.getLinkCommands()) {
+			new LinkCommand(config.getCommand(), config.getMessage(), config.getLink()).register(dispatcher);
+		}
 	}
 
 	public static void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher,

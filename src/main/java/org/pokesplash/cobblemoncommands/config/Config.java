@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import org.pokesplash.cobblemoncommands.CobblemonCommands;
 import org.pokesplash.cobblemoncommands.util.Utils;
 
+import java.util.ArrayList;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -15,6 +16,7 @@ public class Config {
 	private HaConfig hiddenAbility;
 	private SyncConfig synchronize;
 	private NodeConfig firstJoin;
+	private ArrayList<CommandConfig> linkCommands;
 
 	/**
 	 * Constructor to create a default config file.
@@ -24,6 +26,8 @@ public class Config {
 		hiddenAbility = new HaConfig();
 		synchronize = new SyncConfig();
 		firstJoin = new NodeConfig();
+		linkCommands = new ArrayList<>();
+		linkCommands.add(new CommandConfig());
 	}
 
 	/**
@@ -38,6 +42,7 @@ public class Config {
 					hiddenAbility = cfg.getHiddenAbility();
 					synchronize = cfg.getSynchronize();
 					firstJoin = cfg.getFirstJoin();
+					linkCommands = cfg.getLinkCommands();
 				});
 
 		if (!futureRead.join()) {
@@ -65,5 +70,9 @@ public class Config {
 	}
 	public NodeConfig getFirstJoin() {
 		return firstJoin;
+	}
+
+	public ArrayList<CommandConfig> getLinkCommands() {
+		return linkCommands;
 	}
 }

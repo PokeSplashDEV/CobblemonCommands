@@ -80,7 +80,7 @@ public class DeleteMoveCommand {
 
 		pokemon.getMoveSet().setMove(moveSlot, null);
 
-		context.getSource().sendMessage(Text.literal("§2Successfully removed move in slot " + (slot + 1) +
+		context.getSource().sendMessage(Text.literal("§2Successfully removed move in slot " + (moveSlot + 1) +
 				" from " + party.get(slot).getDisplayName().getString()));
 
 		return 1;
