@@ -9,10 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.pokesplash.cobblemoncommands.command.CommandHandler;
 import org.pokesplash.cobblemoncommands.config.Config;
-import org.pokesplash.cobblemoncommands.event.PlayerJoinEvent;
-import org.pokesplash.cobblemoncommands.event.PokemonCaptureEvent;
-import org.pokesplash.cobblemoncommands.event.PokemonDefeatedEvent;
-import org.pokesplash.cobblemoncommands.event.PokemonSpawnEvent;
+import org.pokesplash.cobblemoncommands.event.*;
 
 public class CobblemonCommands implements ModInitializer {
 	public static final String MOD_ID = "CobblemonCommands";
@@ -33,6 +30,7 @@ public class CobblemonCommands implements ModInitializer {
 		new PokemonSpawnEvent().registerEvent();
 		new PokemonCaptureEvent().registerEvent();
 		new PokemonDefeatedEvent().registerEvent();
+		new EvolveEvent().registerEvent();
 		load();
 	}
 
