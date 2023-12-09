@@ -18,8 +18,9 @@ public class EvolveEvent {
 		CobblemonEvents.EVOLUTION_COMPLETE.subscribe(Priority.NORMAL, e -> {
 
 			Pokemon evolved = e.getPokemon();
-			FormData preSpecies = e.getPokemon().getPreEvolution().getSpecies().getForm(evolved.getAspects());
+			FormData preSpecies = e.getPokemon().getPreEvolution().getForm();
 			Pokemon preEvo = preSpecies.getSpecies().create(1);
+			preEvo.setForm(preSpecies);
 
 			AbilityTemplate preAbility = null;
 

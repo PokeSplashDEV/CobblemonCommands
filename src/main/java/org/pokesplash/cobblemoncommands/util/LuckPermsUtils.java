@@ -2,6 +2,7 @@ package org.pokesplash.cobblemoncommands.util;
 
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
+import net.luckperms.api.node.Node;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.pokesplash.cobblemoncommands.CobblemonCommands;
 
@@ -21,5 +22,16 @@ public abstract class LuckPermsUtils {
 		}
 
 		return playerLP.getCachedData().getPermissionData().checkPermission(permission).asBoolean();
+	}
+
+	public static Node getNode(ServerPlayerEntity user, String key) {
+		User playerLP = LuckPermsProvider.get().getUserManager().getUser(user.getUuid());
+
+		if (playerLP == null) {
+			CobblemonCommands.LOGGER.error("Could not find player " + user + " in LuckPerms.");
+			return null;
+		}
+
+		return playerLP.getCachedData().getPermissionData().queryPermission(key).node();
 	}
 }

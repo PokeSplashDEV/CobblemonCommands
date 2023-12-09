@@ -17,6 +17,7 @@ public class Config {
 	private SyncConfig synchronize;
 	private NodeConfig firstJoin;
 	private ArrayList<CommandConfig> linkCommands;
+	private int repairCooldown;
 
 	/**
 	 * Constructor to create a default config file.
@@ -28,6 +29,7 @@ public class Config {
 		firstJoin = new NodeConfig();
 		linkCommands = new ArrayList<>();
 		linkCommands.add(new CommandConfig());
+		repairCooldown = 60;
 	}
 
 	/**
@@ -43,6 +45,7 @@ public class Config {
 					synchronize = cfg.getSynchronize();
 					firstJoin = cfg.getFirstJoin();
 					linkCommands = cfg.getLinkCommands();
+					repairCooldown = cfg.getRepairCooldown();
 				});
 
 		if (!futureRead.join()) {
@@ -74,5 +77,9 @@ public class Config {
 
 	public ArrayList<CommandConfig> getLinkCommands() {
 		return linkCommands;
+	}
+
+	public int getRepairCooldown() {
+		return repairCooldown;
 	}
 }
