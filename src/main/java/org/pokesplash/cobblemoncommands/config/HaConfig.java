@@ -16,4 +16,8 @@ public class HaConfig {
 	public int getSpawnRate() {
 		return spawnRate;
 	}
+
+	public void setSpawnRate(int spawnRate) {
+		this.spawnRate = spawnRate;
+	}
 }

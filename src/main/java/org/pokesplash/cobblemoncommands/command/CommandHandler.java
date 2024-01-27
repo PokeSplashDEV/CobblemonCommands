@@ -15,6 +15,7 @@ public abstract class CommandHandler {
 		new DeleteMoveCommand().register(dispatcher);
 		new EndBattleCommand().register(dispatcher);
 		new RepairCommand().register(dispatcher);
+		new BoosterCommand().register(dispatcher);
 
 		for (CommandConfig config : CobblemonCommands.config.getLinkCommands()) {
 			new LinkCommand(config.getCommand(), config.getMessage(), config.getLink()).register(dispatcher);

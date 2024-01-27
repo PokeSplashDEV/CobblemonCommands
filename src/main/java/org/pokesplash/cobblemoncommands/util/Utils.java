@@ -4,6 +4,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
 import org.pokesplash.cobblemoncommands.CobblemonCommands;
 
 import java.io.File;
@@ -17,6 +20,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -308,5 +312,14 @@ public abstract class Utils {
 	public static <T> T getRandomValue(List<T> list) {
 		Random random = new Random();
 		return list.get(random.nextInt(list.size()));
+	}
+
+	public static void broadcastMessage(Text message) {
+		MinecraftServer server = CobblemonCommands.server;
+		ArrayList<ServerPlayerEntity> players = new ArrayList<>(server.getPlayerManager().getPlayerList());
+
+		for (ServerPlayerEntity pl : players) {
+			pl.sendMessage(message);
+		}
 	}
 }
